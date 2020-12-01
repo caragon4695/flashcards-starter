@@ -1,12 +1,8 @@
-new Card {
-  constructor(id, question, possibleAnswers, answer) {
+class Card {
+  constructor(id, question, answers, correctAnswer) {
     this.id = id;
     this.question = question;
-    this.possibleAnswers = possibleAnswers;
-    this.answer = answer;
+    this.answers = answers;
+    this.correctAnswer = correctAnswer;
   }
 };
-
-const card1 = new Card(1, "What allows you to define a set of related information using key-value pairs?",
-["object", "array", "function"], "object");
-const card2 = new Card(2, "What is a comma-separated list of related values?", ["array", "object", "function"], "array");
