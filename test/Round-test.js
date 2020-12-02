@@ -18,7 +18,7 @@ round = new Round(deck);
 });
 
   it.skip('should be a function', function() {
-    expect(Round).to.be.a(function);
+    expect(Round).to.be.a('function');
   });
 
   it.skip('should be an instance of Round', function() {
@@ -38,12 +38,12 @@ round = new Round(deck);
   });
 
   it.skip('should be able to store the incorrect guesses', function() {
-    expect(round.incorrectGuesses).to.equal([]);
+    expect(round.incorrectGuesses).to.deep.equal([]);
   });
 
   it.skip('should allow the user to take some turns and return whether it was correct or incorrect', function() {
-    expect(round.takeTurn('sea otter').to.equal('correct!'));
-    expect(round.takeTurn('spleen').to.equal('incorrect!'));
+    expect(round.takeTurn('sea otter')).to.equal('correct!');
+    expect(round.takeTurn('spleen')).to.equal('incorrect!');
   });
 
   it.skip('should have 2 turns taken', function() {
@@ -59,6 +59,10 @@ round = new Round(deck);
   });
 
   it.skip('should calculate and return the percentage of correct guesses', function() {
-    expect(round.calculatePercentCorrect().to.equal(50));
+    expect(round.calculatePercentCorrect()).to.equal(50);
+  });
+
+  it.skip('should alert the user that the round is over and what percentage of questions they guessed correctly', function() {
+    expect(round.endRound()).to.equal('** Round over! ** You answered 50% of the questions correctly!');
   });
 });
