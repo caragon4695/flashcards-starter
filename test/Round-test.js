@@ -29,12 +29,8 @@ done();
     expect(round).to.be.an.instanceof(Round);
   });
 
-  it('should store the current deck', function() {
-    expect(round.deck).to.equal(deck);
-  });
-
   it('should be able to return the current card', function() {
-    expect(round.returnCurrentCard()).to.equal(round.deck[0]);
+    expect(round.returnCurrentCard()).to.deep.equal({ id: 1, question: 'What is Robbie\'s favorite animal', answers: ['sea otter', 'pug', 'capybara'], correctAnswer: 'sea otter'});
   });
 
   it('should have no turns taken yet', function() {
@@ -50,23 +46,33 @@ done();
     expect(round.takeTurn('spleen')).to.equal('incorrect!');
   });
 
-  it.skip('should have 2 turns taken', function() {
+  it('should have 2 turns taken', function() {
+    round.takeTurn('sea otter');
+    round.takeTurn('spleen');
     expect(round.turns).to.equal(2);
   });
 
-  it.skip('should add the incorrect guesses\'s id', function() {
+  it('should add the incorrect guesses\'s id', function() {
+    round.takeTurn('sea otter');
+    round.takeTurn('spleen');
     expect(round.incorrectGuesses).to.deep.equal([14]);
   });
 
-  it.skip('should be able to return the current card', function() {
+  it('should be able to return the current card', function() {
+    round.takeTurn('sea otter');
+    round.takeTurn('spleen');
     expect(round.returnCurrentCard()).to.equal(round.deck[2]);
   });
 
-  it.skip('should calculate and return the percentage of correct guesses', function() {
+  it('should calculate and return the percentage of correct guesses', function() {
+    round.takeTurn('pug');
+    round.takeTurn('gallbladder');
     expect(round.calculatePercentCorrect()).to.equal(50);
   });
 
-  it.skip('should alert the user that the round is over and what percentage of questions they guessed correctly', function() {
+  it('should alert the user that the round is over and what percentage of questions they guessed correctly', function() {
+    round.takeTurn('pug');
+    round.takeTurn('gallbladder');
     expect(round.endRound()).to.equal('** Round over! ** You answered 50% of the questions correctly!');
   });
 });

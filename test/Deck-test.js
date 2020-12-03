@@ -21,11 +21,7 @@ beforeEach((done) => {
     expect(Deck).to.be.a('function');
   });
 
-  it('should be an instance of Deck', function() {
-    expect(deck).to.be.an.instanceof(Deck);
-  });
-
   it('should be able to count the cards in the deck', function() {
-    expect(deck.countCards(deck)).to.equal(3);
+    expect(deck.countCards()).to.equal(3);
   })
 });
