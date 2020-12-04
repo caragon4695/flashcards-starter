@@ -7,13 +7,13 @@ const Card = require('../src/Card');
 const Turn = require('../src/Turn');
 
 class Game {
-  constructor(round) {
-    this.currentRound = round;
+  constructor() {
+    this.currentRound = null;
   };
 
   start() {
-    const cards = prototypeData.map(card => {
-      new Card(card.id, card .question, card.answers, card.correctAnswer));
+    const cards = prototypeQuestions.map(card => {
+       return new Card(card.id, card.question, card.answers, card.correctAnswer);
     });
     const deck = new Deck(cards);
     this.currentRound = new Round(deck);
