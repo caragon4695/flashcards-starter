@@ -42,15 +42,7 @@ beforeEach((done) => {
     expect(turn.evaluateGuess()).to.equal(false);
   });
 
-  it('should be able to return true if the guess matches the correct answer', function() {
-    expect(turn.evaluateGuess()).to.equal(true);
-  });
-
   it('should be able to return whether the guess was incorrect', function() {
     expect(turn.giveFeedback()).to.equal('incorrect!');
-  });
-
-  it('should be able to return whether the guess was correct', function() {
-    expect(turn.giveFeedback()).to.equal('correct!');
   });
 });
